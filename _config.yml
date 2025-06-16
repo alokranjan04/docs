@@ -1,0 +1,13 @@
+- name: Build site
+  uses: actions/jekyll-build-pages@v1
+  with:
+    source: ./docs       # ensure this is where your site lives
+    destination: ./_site
+
+- name: Upload pages artifact
+  uses: actions/upload-pages-artifact@v2
+  with:
+    path: ./_site
+
+- name: Deploy to GitHub Pages
+  uses: actions/deploy-pages@v2
